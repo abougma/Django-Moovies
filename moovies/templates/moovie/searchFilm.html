@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste des films</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .movie-container {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .movie-thumbnail {
+            width: 200px;
+            margin: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .movie-image {
+            width: 100%;
+            height: auto;
+        }
+
+        .movie-details {
+            padding: 10px;
+        }
+
+        .movie-title {
+            margin-top: 0;
+        }
+
+        .movie-year, .movie-genre {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">LISTE DES FILMS</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <form class="form-inline ml-auto" method="POST" action="{% url 'search_film' %}">
+                {% csrf_token %}
+                <input class="form-control mr-sm-2" type="search" placeholder="Rechercher un film" aria-label="Search" name="search_query">
+                <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Rechercher</button>
+            </form>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="movie-container">
+            {% for movie in movies %}
+                <div class="movie-thumbnail">
+                    <img src="{% if movie.poster_url %}{{ movie.poster_url }}{% else %}placeholder_image_url{% endif %}" alt="{{ movie.title }}" class="movie-image">
+                    <div class="movie-details">
+                        <h5 class="movie-title">{{ movie.title }}</h5>
+                        <p class="movie-year">Année: {{ movie.year }}</p>
+                        <p class="movie-year">Genre: {{ movie.genre }}</p>
+
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
