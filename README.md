@@ -1,6 +1,6 @@
 # Django-Moovies
 
-# L'application en question est une application Python/Django développée dans le cadre d'une évaluation. Son objectif est de permettre à un utilisateur de rechercher des informations sur un film dans une base de données locale et, en cas de non-correspondance, d'interroger une API tierce (OMDB API) pour obtenir les résultats.
+### L'application en question est une application Python/Django développée dans le cadre d'une évaluation. Son objectif est de permettre à un utilisateur de rechercher des informations sur un film dans une base de données locale et, en cas de non-correspondance, d'interroger une API tierce (OMDB API) pour obtenir les résultats.
 
 ## Caractéristiques principales de cette application :
 
