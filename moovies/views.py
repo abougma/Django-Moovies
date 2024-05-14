@@ -25,7 +25,7 @@ def search_film(request):
 
                     if data.get('Search'):
                         for movie_data in data['Search']:
-                            movie = Movie(title=movie_data['Title'], year=movie_data['Year'], genre = movie_data['Genre'])
+                            movie = Movie(title=movie_data['Title'], year=movie_data['Year'])
 
                             if movie_data.get('Poster'):
                                 movie.poster_url = movie_data['Poster']
