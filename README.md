@@ -19,3 +19,38 @@
 
 * ### Espace Administrateur
 * ### Realisation des tests
+
+# Guide d'utilisation :
+
+### 1-Installer les dépendances
+
+#### Pour installer les dépendances d'un projet, suivez ces étapes :
+
+* #### Ouvrez votre terminal (Git Bash, PowerShell, Command Prompt, ou terminal intégré de votre IDE).
+* #### Assurez-vous d'être dans le répertoire du projet, où se trouve le fichier requirements.txt.
+* #### Utilisez pip pour installer les dépendances : pip install -r requirements.txt
+
+### 2-Exécuter le projet
+
+* #### Après avoir installé les dépendances, vous pouvez exécuter le serveur Django comme décrit précédemment : python manage.py runserver
+
+### Guide complet révisé :
+
+* #### Accédez à la page principale du dépôt sur GitHub.com.
+* #### Au-dessus de la liste des fichiers, cliquez sur le bouton <> Code.
+* #### Copiez l’URL du dépôt.
+* #### Ouvrez Git Bash.
+* #### Naviguez vers le répertoire où vous souhaitez cloner le dépôt en utilisant la commande cd (par exemple, cd /chemin/vers/repertoire).
+* #### Tapez git clone, puis collez l’URL que vous avez copiée précédemment.
+
+
+* #### git clone https://github.com/utilisateur/nom-du-depot.git
+
+* #### Appuyez sur Entrée pour créer votre clone local.
+* #### Ouvrez le dossier cloné dans un IDE où Django est installé.
+* #### Installez les dépendances : pip install -r requirements.txt
+
+* #### Dans le terminal de l'IDE, tapez : python manage.py runserver pour démarrer le projet.
+* #### Dans le terminal, cliquez sur l'URL suivante : http://127.0.0.1:8000/
+
+* #### Vous verrez alors la page d'accueil du projet Django.
