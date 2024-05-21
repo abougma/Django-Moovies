@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Liste des films</title>
+    <title>Moovies</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         .movie-container {
@@ -81,11 +81,23 @@
                     <div class="movie-details">
                         <h5 class="movie-title">{{ movie.title }}</h5>
                         <p class="movie-year">Année: {{ movie.year }}</p>
+                        <p class="movie-year">Genre: {{ movie.genre }}</p>
                     </div>
                 </div>
             {% endfor %}
         </div>
     </div>
+    {% if messages %}
+    {% for message in messages %}
+        {% if forloop.first %}
+            <div class="alert alert-{{ message.tags|default:'info'|lower|cut:'error'|add:'danger' }}">
+                {{ message }}
+            </div>
+        {% endif %}
+    {% endfor %}
+    {% endif %}
+
+
 
     <footer>
         <p>&copy; 2024 Moovies</p>
