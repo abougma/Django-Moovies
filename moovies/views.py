@@ -3,6 +3,7 @@ from .forms import FilmSearchForm
 from .models import Movie
 from django.http import HttpResponse
 import requests
+from django.contrib import messages
 
 def search_film(request):
     form = FilmSearchForm()
@@ -26,12 +27,17 @@ def search_film(request):
                     if data.get('Search'):
                         for movie_data in data['Search']:
                             movie = Movie(title=movie_data['Title'], year=movie_data['Year'])
-
                             if movie_data.get('Poster'):
                                 movie.poster_url = movie_data['Poster']
                             movie.save()
                             movies.append(movie)
+                    else:
+                        # Afficher un message d'erreur à l'utilisateur
+                        messages.error(request, f"Aucun film trouvé pour la recherche '{search_query}'")
                 except requests.RequestException as e:
                     print(f"Erreur de requête à l'API OMDb : {e}")
+    else:
+        # Afficher un message d'erreur à l'utilisateur
+        messages.error(request, "Aucun film trouvé pour cette recherche")
 
     return render(request, 'moovie/searchFilm.html', {'form': form, 'movies': movies})
